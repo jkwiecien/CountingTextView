@@ -1,4 +1,4 @@
-package com.aprilapps.countingtextviewsample;
+package com.aprilapps.countingtextview;
 
 import android.animation.ObjectAnimator;
 import android.content.Context;
