@@ -7,6 +7,17 @@ This is only a GIF, so it won't look smooth, but believe me that live it is smoo
 
 <img src="http://g.recordit.co/ID5SBXCvVM.gif" height="360" />
 
+# Value formatting
+
+You can customize what do you wan't to add to your number:
+```
+textView.setFormatter(new CountingTextView.ValueFormatter() {
+                    @Override 
+                    public String formatValue(float value) {
+                        return String.format("%.2f%% of rabbits", value);
+                    } 
+                }); 
+```
 
 #Setup
 ```
