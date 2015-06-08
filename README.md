@@ -3,7 +3,7 @@ Animated value change on a TextView made easy. Just call ```setValue(float value
 
 # How does it work?
 
-This is only a GIF, so it won't look smooth, but believe me, live it's smooth as Sean O'Connery 
+This is only a GIF, so it won't look smooth, but believe me that live it is smooth as Sir Sean O'Connery 
 
 <img src="http://g.recordit.co/ID5SBXCvVM.gif" height="360" />
 
