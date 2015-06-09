@@ -26,7 +26,7 @@ repositories {
 }
 
 dependencies {
-    compile('com.github.jkwiecien:CountingTextView:1.0.8') {
+    compile('com.github.jkwiecien:CountingTextView:1.0.9') {
         exclude module: 'appcompat-v7'
     }
 }
