@@ -3,6 +3,7 @@ package com.aprilapps.countingtextview;
 import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.view.animation.LinearInterpolator;
@@ -15,6 +16,7 @@ public class CountingTextView extends TextView {
 
     private final String STATE = "state";
     private final String PREVIOUS_VALUE = "previous_value";
+    private final String FORMATTER = "formatter";
 
     private float previousValue;
     private ValueFormatter formatter;
@@ -61,8 +63,18 @@ public class CountingTextView extends TextView {
         setText(formatter.formatValue(value));
     }
 
-    public static abstract class ValueFormatter {
+    public static abstract class ValueFormatter implements Parcelable {
         public abstract String formatValue(float value);
+
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override
+        public void writeToParcel(Parcel dest, int flags) {
+
+        }
     }
 
     public void setFormatter(ValueFormatter formatter) {
@@ -77,6 +89,7 @@ public class CountingTextView extends TextView {
     public Parcelable onSaveInstanceState() {
         Bundle outState = new Bundle();
         outState.putFloat(PREVIOUS_VALUE, previousValue);
+        outState.putParcelable(FORMATTER, formatter);
         outState.putParcelable(STATE, super.onSaveInstanceState());
         return outState;
     }
@@ -85,7 +98,10 @@ public class CountingTextView extends TextView {
     public void onRestoreInstanceState(Parcelable state) {
         Bundle bundle = (Bundle) state;
         previousValue = ((Bundle) state).getFloat(PREVIOUS_VALUE);
+        formatter = ((Bundle) state).getParcelable(FORMATTER);
         super.onRestoreInstanceState(bundle.getParcelable(STATE));
+
+        if (previousValue != 0f) setValue(previousValue);
     }
 
 }
