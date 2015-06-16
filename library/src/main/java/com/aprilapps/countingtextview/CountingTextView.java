@@ -2,7 +2,6 @@ package com.aprilapps.countingtextview;
 
 import android.animation.ObjectAnimator;
 import android.content.Context;
-import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.AttributeSet;
@@ -83,25 +82,6 @@ public class CountingTextView extends TextView {
 
     public void setAnimationDuration(long animationDuration) {
         this.animationDuration = animationDuration;
-    }
-
-    @Override
-    public Parcelable onSaveInstanceState() {
-        Bundle outState = new Bundle();
-        outState.putFloat(PREVIOUS_VALUE, previousValue);
-        outState.putParcelable(FORMATTER, formatter);
-        outState.putParcelable(STATE, super.onSaveInstanceState());
-        return outState;
-    }
-
-    @Override
-    public void onRestoreInstanceState(Parcelable state) {
-        Bundle bundle = (Bundle) state;
-        previousValue = ((Bundle) state).getFloat(PREVIOUS_VALUE);
-        formatter = ((Bundle) state).getParcelable(FORMATTER);
-        super.onRestoreInstanceState(bundle.getParcelable(STATE));
-
-        if (previousValue != 0f) setValue(previousValue);
     }
 
 }
