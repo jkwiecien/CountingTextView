@@ -1,3 +1,5 @@
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-CountingTextView-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/2602)
+
 # CountingTextView
 Animated value change on a TextView made easy. Just call ```setValue(float value)``` on a CountingTextView and watch the magic happen.
 
